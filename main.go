@@ -1,10 +1,23 @@
 package main
 
-import "github.com/felipefadoni/boilerplate-golang/src/routes"
+import (
+	"log"
+	"os"
+
+	"github.com/felipefadoni/boilerplate-golang/src"
+	"github.com/joho/godotenv"
+)
 
 func main() {
 
-	r := routes.Routes()
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 
-	r.Run(":8001")
+	r := src.Routes()
+
+	apiPort := os.Getenv("PORT")
+
+	r.Run(":" + apiPort)
 }
