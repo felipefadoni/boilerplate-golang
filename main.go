@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/felipefadoni/boilerplate-golang/src"
+	"github.com/felipefadoni/boilerplate-golang/src/infra/postgres"
 	"github.com/joho/godotenv"
 )
 
@@ -14,6 +15,8 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
+
+	postgres.InitDatabase()
 
 	r := src.Routes()
 
