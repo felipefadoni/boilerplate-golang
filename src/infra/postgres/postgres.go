@@ -4,7 +4,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/felipefadoni/boilerplate-golang/src/entities"
+	"github.com/felipefadoni/boilerplate-golang/src/infra/postgres/entities"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -49,5 +49,5 @@ func InitDatabase() {
 		panic(err)
 	}
 	sqlDB.Query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`)
-	db.AutoMigrate(entities.User{})
+	db.AutoMigrate(&entities.User{})
 }
