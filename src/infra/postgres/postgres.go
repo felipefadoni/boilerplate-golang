@@ -44,14 +44,10 @@ func GetInstance() *gorm.DB {
 
 func InitDatabase() {
 	db := connectDb()
-
 	sqlDB, err := db.DB()
 	if err != nil {
 		panic(err)
 	}
-
 	sqlDB.Query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`)
-
 	db.AutoMigrate(entities.User{})
-
 }

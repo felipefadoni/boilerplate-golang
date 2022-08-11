@@ -10,7 +10,7 @@ func GetAll() []dto.GetAllUserDTO {
 
 	var result []dto.GetAllUserDTO
 
-	db.Raw("SELECT * FROM users").Scan(&result)
+	db.Raw("SELECT * FROM users WHERE deleted_at IS NULL").Scan(&result)
 
 	return result
 }

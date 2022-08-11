@@ -1,10 +1,11 @@
 package dto
 
 type GetAllUserDTO struct {
-	ID       string
-	Name     string
-	Email    string
-	Login    string
-	Password string
-	Accepted bool
+	ID        string `json:"id"`
+	CreatedAt string `json:"created_at"`
+	UpdatedAt string `json:"updated_at"`
+	Name      string `json:"name"`
+	Email     string `json:"email"`
+	Login     string `json:"login"`
+	Accepted  bool   `json:"accepted"`
 }
