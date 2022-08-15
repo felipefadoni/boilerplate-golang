@@ -3,7 +3,7 @@ package user
 import (
 	"net/http"
 
-	"github.com/felipefadoni/boilerplate-golang/src/modules/user"
+	"github.com/felipefadoni/boilerplate-golang/src/useCases/user"
 	"github.com/gin-gonic/gin"
 )
 
