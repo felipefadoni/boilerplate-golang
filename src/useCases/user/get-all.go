@@ -15,7 +15,7 @@ type GetAllUserModuleReturn struct {
 	PreviousPage int64               `json:"previousPage"`
 }
 
-func GetAllUserModule(page int64, limit int64) GetAllUserModuleReturn {
+func GetAllUserUseCase(page int64, limit int64) GetAllUserModuleReturn {
 
 	var result GetAllUserModuleReturn
 

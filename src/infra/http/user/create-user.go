@@ -23,7 +23,7 @@ func CreateUserController(c *gin.Context) {
 		return
 	}
 
-	user, err := user.CreateUserService(userDTO)
+	user, err := user.CreateUserUseCase(userDTO)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Error creating user"})
 		return

@@ -18,7 +18,7 @@ func DeleteUserController(c *gin.Context) {
 		return
 	}
 
-	err = user.DeleteUserService(id)
+	err = user.DeleteUserUseCase(id)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Error deleting user"})
 		return

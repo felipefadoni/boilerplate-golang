@@ -18,7 +18,7 @@ func GetAllUserController(c *gin.Context) {
 		return
 	}
 
-	result := user.GetAllUserModule(page, limit)
+	result := user.GetAllUserUseCase(page, limit)
 
 	c.JSON(http.StatusOK, gin.H{
 		"message": "Get All Users",

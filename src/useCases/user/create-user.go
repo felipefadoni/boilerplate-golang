@@ -6,7 +6,7 @@ import (
 	"github.com/felipefadoni/boilerplate-golang/src/infra/postgres/entities"
 )
 
-func CreateUserService(userDTO dto.CreateUserDTO) (dto.CreateUserReturnDTO, error) {
+func CreateUserUseCase(userDTO dto.CreateUserDTO) (dto.CreateUserReturnDTO, error) {
 	var userEntity = entities.User{
 		Name:     userDTO.Name,
 		Email:    userDTO.Email,
