@@ -5,12 +5,19 @@ import (
 	"github.com/felipefadoni/boilerplate-golang/src/infra/postgres"
 )
 
-func GetAll() []dto.GetAllUserDTO {
+func GetAll(page int64, limit int64) []dto.GetAllUserDTO {
 	db := postgres.GetInstance()
 
 	var result []dto.GetAllUserDTO
 
-	db.Raw("SELECT * FROM users WHERE deleted_at IS NULL").Scan(&result)
+	var offset int64
+	if page > 1 {
+		offset = (page - 1) * limit
+	} else {
+		offset = 0
+	}
+
+	db.Raw("SELECT * FROM users WHERE deleted_at IS NULL ORDER BY created_at DESC LIMIT ? OFFSET ?", limit, offset).Scan(&result)
 
 	return result
 }

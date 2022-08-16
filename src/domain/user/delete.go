@@ -1,7 +1,13 @@
 package user
 
-import "fmt"
+import (
+	"github.com/felipefadoni/boilerplate-golang/src/infra/postgres"
+	"github.com/felipefadoni/boilerplate-golang/src/infra/postgres/entities"
+)
 
-func DeleteUserRepository(id string) {
-	fmt.Println("id:", id)
+func DeleteUserRepository(id string) error {
+	db := postgres.GetInstance()
+	var User entities.User
+	err := db.Where("id = ?", id).Delete(&User).Error
+	return err
 }
