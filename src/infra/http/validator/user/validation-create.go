@@ -4,6 +4,7 @@ import (
 	"errors"
 
 	"github.com/felipefadoni/boilerplate-golang/src/dto"
+	"github.com/felipefadoni/boilerplate-golang/src/helpers"
 	"github.com/go-playground/validator/v10"
 )
 
@@ -16,17 +17,9 @@ type createUserValidation struct {
 }
 
 func ValidationCreateUser(userDTO dto.CreateUserDTO) error {
-
 	validate := validator.New()
-
-	userValidation := createUserValidation{
-		Name:     userDTO.Name,
-		Email:    userDTO.Email,
-		Login:    userDTO.Login,
-		Password: userDTO.Password,
-		Accepted: userDTO.Accepted,
-	}
-
+	userValidation := createUserValidation{}
+	helpers.TransformData(userDTO, &userValidation)
 	err := validate.Struct(userValidation)
 	if err != nil {
 		if _, ok := err.(*validator.InvalidValidationError); ok {

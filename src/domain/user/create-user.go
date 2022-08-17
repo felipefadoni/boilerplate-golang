@@ -10,7 +10,9 @@ import (
 
 func CreateUser(user entities.User) (dto.CreateUserReturnDTO, error) {
 	db := postgres.GetInstance()
-	var userReturnDTO dto.CreateUserReturnDTO
+
+	userReturnDTO := dto.CreateUserReturnDTO{}
+
 	result := db.Create(&user).Scan(&userReturnDTO)
 	if result.Error != nil {
 		return dto.CreateUserReturnDTO{}, errors.New("ERROR creating user")

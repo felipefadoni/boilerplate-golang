@@ -17,12 +17,12 @@ type GetAllUserModuleReturn struct {
 
 func GetAllUserUseCase(page int64, limit int64) GetAllUserModuleReturn {
 
-	var result GetAllUserModuleReturn
+	result := GetAllUserModuleReturn{}
 
 	result.Rows = user.GetAll(page, limit)
 	result.Total = user.GetTotal()
 
-	var pagination = helpers.Pagination(result.Total, page, limit)
+	pagination := helpers.Pagination(result.Total, page, limit)
 
 	result.CurrentPage = page
 	result.TotalPages = pagination["totalPages"]

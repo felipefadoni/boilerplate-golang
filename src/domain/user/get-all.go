@@ -11,10 +11,10 @@ func GetAll(page int64, limit int64) []dto.GetAllUserDTO {
 	var result []dto.GetAllUserDTO
 
 	var offset int64
-	if page > 1 {
-		offset = (page - 1) * limit
-	} else {
+	if page <= 0 {
 		offset = 0
+	} else {
+		offset = (page - 1) * limit
 	}
 
 	db.Raw("SELECT * FROM users WHERE deleted_at IS NULL ORDER BY created_at DESC LIMIT ? OFFSET ?", limit, offset).Scan(&result)

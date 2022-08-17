@@ -2,8 +2,8 @@ package dto
 
 type GetAllUserDTO struct {
 	ID        string `json:"id"`
-	CreatedAt string `json:"created_at"`
-	UpdatedAt string `json:"updated_at"`
+	CreatedAt string `json:"createdAt"`
+	UpdatedAt string `json:"updatedAt"`
 	Name      string `json:"name"`
 	Email     string `json:"email"`
 	Login     string `json:"login"`
