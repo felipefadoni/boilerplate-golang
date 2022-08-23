@@ -1,7 +1,7 @@
 package user
 
 import (
-	"github.com/felipefadoni/boilerplate-golang/src/domain/user"
+	user "github.com/felipefadoni/boilerplate-golang/src/domain/user/repositories"
 	"github.com/felipefadoni/boilerplate-golang/src/dto"
 	"github.com/felipefadoni/boilerplate-golang/src/helpers"
 )
@@ -16,18 +16,13 @@ type GetAllUserModuleReturn struct {
 }
 
 func GetAllUserUseCase(page int64, limit int64) GetAllUserModuleReturn {
-
 	result := GetAllUserModuleReturn{}
-
 	result.Rows = user.GetAll(page, limit)
 	result.Total = user.GetTotal()
-
 	pagination := helpers.Pagination(result.Total, page, limit)
-
 	result.CurrentPage = page
 	result.TotalPages = pagination["totalPages"]
 	result.NextPage = pagination["nextPage"]
 	result.PreviousPage = pagination["previousPage"]
-
 	return result
 }

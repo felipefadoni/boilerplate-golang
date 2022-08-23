@@ -3,8 +3,8 @@ package user
 import (
 	"net/http"
 
+	user "github.com/felipefadoni/boilerplate-golang/src/domain/user/usecases"
 	validatorUser "github.com/felipefadoni/boilerplate-golang/src/infra/http/validator/user"
-	"github.com/felipefadoni/boilerplate-golang/src/useCases/user"
 	"github.com/gin-gonic/gin"
 )
 
